@@ -4,7 +4,7 @@ var eslint = require('eslint');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./src/snabbdom.js",
+    entry: "./src/index.js",
     output: {
         path: __dirname,
         filename: "bundle.js"
@@ -26,6 +26,10 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
                 loader: 'eslint-loader'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
             }
         ]
     },
