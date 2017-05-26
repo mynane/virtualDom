@@ -1,4 +1,7 @@
-.content-wrap {
-    border: 1px solid #333;
+.clock-wrap {
     max-width: 200px;
+    &-time {
+        border: 1px solid #333;
+        cursor: pointer;
+    }
 }

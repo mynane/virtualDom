@@ -4,7 +4,7 @@ var eslint = require('eslint');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src2/index.jsx",
     output: {
         path: __dirname,
         filename: "bundle.js"
@@ -12,17 +12,17 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 exclude: /node_modules/,
                 loaders: 'babel-loader',
                 query: {
-                    presets: ['es2015']
+                    presets: ['es2015', 'react']
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 include: [
-                    path.resolve(__dirname, "./src")
+                    path.resolve(__dirname, "./src2")
                 ],
                 exclude: /node_modules/,
                 loader: 'eslint-loader'
@@ -34,7 +34,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.coffee']
+        extensions: [' ', '.ts', '.js', '.jsx', '.json', '.coffee']
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -45,7 +45,10 @@ module.exports = {
          options: {
            eslint: './.eslintrc'
          }
-       })
+       }),
+       new webpack.ProvidePlugin({
+            "React": "react",
+        }),
     ],
     devServer: {
         historyApiFallback: true,
