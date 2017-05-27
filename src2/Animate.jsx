@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import warning from 'warning';
 import invariant from 'invariant';
@@ -25,7 +26,7 @@ class AnimateCom extends Component {
         });
     }
 
-    onClick() {
+    onClick(e) {
         this.setState({
             show: !this.state.show,
         });

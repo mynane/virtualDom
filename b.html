@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 300px;
+            border: red;
+        }
+
+        ul li {
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        ul li:hover .circle {
+            animation: ripple 4.5s ease-out 225ms infinite;
+            -webkit-animation-fill-mode: forwards;
+            /*让动画停在最后是这个属性，*/
+            animation-fill-mode: forwards;
+        }
+
+        ul li a {
+            position: relative;
+            left: -50px;
+            color: #333;
+            top: -30px;
+        }
+
+        .circle {
+            background: #fff;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        @keyframes circle-opacity {
+            0% {
+                background: rgba(192, 225, 250, 0);
+            }
+            50% {
+                transform: scale(4);
+                background: rgba(192, 225, 250, 1);
+            }
+            100% {
+                transform: scale(16);
+                background: rgba(192, 225, 250, 0);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(.1);
+                transform: scale(.1)
+            }
+            5% {
+                opacity: 1
+            }
+            to {
+                opacity: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        .point-10 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .point-70 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            margin: auto;
+            -webkit-border-radius: 50%;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 50%;
+            -moz-background-clip: padding;
+            border-radius: 50%;
+            background-clip: padding-box;
+            background: transparent;
+        }
+
+        .point-10 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .point-70 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .point-10:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 2px solid #00cdec;
+            opacity: 0;
+            -webkit-animation: ripple 4.5s ease-out 225ms infinite;
+            animation: ripple 4.5s ease-out 225ms infinite;
+        }
+
+        .point-70:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 2px solid #00cdec;
+            opacity: 0;
+            -webkit-animation: ripple 4.5s ease-out 1575ms infinite;
+            animation: ripple 4.5s ease-out 1575ms infinite;
+        }
+
+        .point-100:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 2px solid #00cdec;
+            opacity: 0;
+            -webkit-animation: ripple 4.5s ease-out 2.25s infinite;
+            animation: ripple 4.5s ease-out 2.25s infinite
+        }
+        .point-90:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 2px solid #00cdec;
+            opacity: 0;
+            -webkit-animation: ripple 4.5s ease-out 2025ms infinite;
+            animation: ripple 4.5s ease-out 2025ms infinite
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="clear">
+        <li><span class="circle"></span><a href="#">Button</a></li>
+        <li><span class="circle"></span><a href="#">Elements</a></li>
+        <li><span class="circle"></span><a href="#">Forms</a></li>
+        <li><span class="circle"></span><a href="#">Charts</a></li>
+        <div class="point point-10"></div>
+        <div class="point point-70"></div>
+        <div class="point point-90"></div>
+        <div class="point point-100"></div>
+    </ul>
+</body>
+
+</html>
